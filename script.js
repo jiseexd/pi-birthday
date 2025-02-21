@@ -2,36 +2,35 @@
 
 // Function to handle button click events
 function selectOption(option) {
+    // Create an audio object
+    const clickSound = new Audio("click-sound.mp3"); // Make sure this file exists
+
     // Check which option was clicked
     if (option === 'yes') {
-        // Flash rainbow colors
+        // Flash rainbow colors and then hide question
         flashRainbowColors(function() {
             document.getElementById('question').style.display = 'none'; // Hide the question
             displayCatHeart(); // Display the cat-heart.gif
-        
         });
-const button = document.getElementById("question");
 
-// Create an audio object
-const clickSound = new Audio("click-sound.mp3"); // Make sure this file exists
+        // Play the click sound when "Yes" is clicked
+        clickSound.play();
 
-// Add an event listener to play sound when the button is clicked
-button.addEventListener("click", function() {
-    clickSound.play();
-});
     } else if (option === 'no') {
         // Change text on the "No" button to "You sure?"
         document.getElementById('no-button').innerText = 'You sure?'; 
+        
         // Increase font size of "Yes" button
         var yesButton = document.getElementById('yes-button');
         var currentFontSize = window.getComputedStyle(yesButton).getPropertyValue('font-size');
-        var newSize = parseFloat(currentFontSize) * 2; // Increase font size by  * 2px
+        var newSize = parseFloat(currentFontSize) * 2; // Increase font size by 2x
         yesButton.style.fontSize = newSize + 'px';
     } else {
         // If neither "Yes" nor "No" was clicked, show an alert message
         alert('Invalid option!');
     }
 }
+
 
 // Function to flash rainbow colors and then execute a callback function
 function flashRainbowColors(callback) {
