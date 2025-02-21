@@ -10,7 +10,7 @@ function selectOption(option) {
             displayCatHeart(); // Display the cat-heart.gif
         
         });
-const button = document.getElementById("myButton");
+const button = document.getElementById("question");
 
 // Create an audio object
 const clickSound = new Audio("click-sound.mp3"); // Make sure this file exists
