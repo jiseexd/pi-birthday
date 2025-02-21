@@ -8,7 +8,17 @@ function selectOption(option) {
         flashRainbowColors(function() {
             document.getElementById('question').style.display = 'none'; // Hide the question
             displayCatHeart(); // Display the cat-heart.gif
+        
         });
+const button = document.getElementById("myButton");
+
+// Create an audio object
+const clickSound = new Audio("click-sound.mp3"); // Make sure this file exists
+
+// Add an event listener to play sound when the button is clicked
+button.addEventListener("click", function() {
+    clickSound.play();
+});
     } else if (option === 'no') {
         // Change text on the "No" button to "You sure?"
         document.getElementById('no-button').innerText = 'You sure?'; 
