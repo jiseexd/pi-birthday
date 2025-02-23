@@ -1,24 +1,28 @@
 // script.js
 
 // Function to handle button click events
-function selectOption(option) {
-    // Create an audio object
-    const audio = new Audio("click-sound.mp3");
+let soundPlayed = false; // Flag to track if the sound has been played once
 
-    // Check which option was clicked
-    if (option === 'yes') {
+function selectOption(option) {
+    if (!soundPlayed) {
+        // Create an audio object
+        const audio = new Audio("click-sound.mp3");
+
         // Play the sound
         audio.play().catch(error => console.log("Autoplay blocked:", error));
 
+        // Set the flag to true so it only plays once
+        soundPlayed = true;
+    }
+
+    // Check which option was clicked
+    if (option === 'yes') {
         // Flash rainbow colors
         flashRainbowColors(function() {
             document.getElementById('question').style.display = 'none'; // Hide the question
             displayCatHeart(); // Display the cat-heart.gif
         });
     } else if (option === 'no') {
-        // Play the sound
-        audio.play().catch(error => console.log("Autoplay blocked:", error));
-
         // Change text on the "No" button to "You sure?"
         document.getElementById('no-button').innerText = 'You sure?'; 
 
@@ -28,9 +32,6 @@ function selectOption(option) {
         var newSize = parseFloat(currentFontSize) * 2; // Increase font size by *2
         yesButton.style.fontSize = newSize + 'px';
     } else {
-        // Play the sound
-        audio.play().catch(error => console.log("Autoplay blocked:", error));
-
         // If neither "Yes" nor "No" was clicked, show an alert message
         alert('Invalid option!');
     }
