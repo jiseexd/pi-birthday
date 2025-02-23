@@ -6,7 +6,7 @@ function selectOption(option) {
     const audio = new Audio("click-sound.mp3");
 
     // Check which option was clicked
-    if (option === 'yes') {d
+    if (option === 'yes') {
         // Play the sound
         audio.play().catch(error => console.log("Autoplay blocked:", error));
 
@@ -79,7 +79,7 @@ function displayCatHeart() {
     // Create a new Image element for the cat-heart
     var catHeartImage = new Image();
     // Set the source (file path) for the cat-heart image
-    catHeartImage.src = 'cat-heart.gif'; // Assuming the cat-heart image is named "cat-heart.gif"
+    catHeartImage.src = 'cat-heart.png'; // Assuming the cat-heart image is named "cat-heart.gif"
     // Set alternative text for the image (for accessibility)
     catHeartImage.alt = 'Cat Heart';
     // When the cat-heart image is fully loaded, add it to the image container
