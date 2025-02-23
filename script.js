@@ -64,7 +64,7 @@ function displayCatHeart() {
 
     var imageContainer = document.getElementById('image-container');
     var catHeartImage = new Image();
-    catHeartImage.src = 'cat-heart.gif';
+    catHeartImage.src = 'cat-heart.png';
     catHeartImage.alt = 'Cat Heart';
 
     // Add full-screen styles directly in JavaScript
