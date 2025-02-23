@@ -61,15 +61,26 @@ function displayCat() {
 // Function to display the cat-heart.gif
 function displayCatHeart() {
     document.getElementById('image-container').innerHTML = '';
+
     var imageContainer = document.getElementById('image-container');
     var catHeartImage = new Image();
-    catHeartImage.src = 'cat-heart.png'; // Assuming the cat-heart image is named "cat-heart.gif"
+    catHeartImage.src = 'cat-heart.gif';
     catHeartImage.alt = 'Cat Heart';
+
+    // Add full-screen styles directly in JavaScript
+    catHeartImage.style.width = "100vw";
+    catHeartImage.style.height = "100vh";
+    catHeartImage.style.objectFit = "cover";
+    catHeartImage.style.position = "absolute";
+    catHeartImage.style.top = "0";
+    catHeartImage.style.left = "0";
+
     catHeartImage.onload = function() {
         imageContainer.appendChild(catHeartImage);
         document.getElementById('options').style.display = 'none';
     };
 }
+
 
 // Display the cat.gif initially
 displayCat();
